@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
-// SeleÁ„o de bibliotecas.
+// Sele√ß√£o de bibliotecas.
 
 int registro()
 {
@@ -12,16 +12,16 @@ int registro()
 	char sobrenome[40];
 	char cargo[40];
 	
-	printf("VocÍ escolheu o registro de nomes.\n\n");
+	printf("Voc√™ escolheu o registro de nomes.\n\n");
 	
 	printf("Digite o CPF a ser cadastrado: ");
-	scanf("%s", cpf); // %s È para atribuir String.
+	scanf("%s", cpf); // %s √© para atribuir String.
 	
 	strcpy(arquivo, cpf); // Copia o valor das strings puxa da segunda pra primeira.
 	
 	FILE *file; // Cria o arquivo
 	file = fopen(arquivo, "w"); // O "W" escreve o arquivo.
-	fprintf(file,cpf); // Salva o valor da vari·vel.
+	fprintf(file,cpf); // Salva o valor da vari√°vel.
 	fclose(file); // Fecha o arquivo.
 	
 	file = fopen(arquivo, "a"); // O "A" atualiza o arquivo.
@@ -66,7 +66,7 @@ int consultar()
 	char cpf[40];
 	char conteudo[200];
 	
-	printf("VocÍ escolheu consultar os nomes.\n\n");
+	printf("Voc√™ escolheu consultar os nomes.\n\n");
 	
 	printf("Digite o CPF a ser consultado: ");
 	scanf("%s",cpf);
@@ -76,12 +76,12 @@ int consultar()
 	
 	if(file == NULL)
 	{
-		printf("O CPF informado n„o foi encontrado");
+		printf("O CPF informado n√£o foi encontrado");
 	}
 	
 	while(fgets(conteudo, 200, file) != NULL)
 	{
-		printf("\nEssas s„o as informaÁıes do usu·rio ");
+		printf("\nEssas s√£o as informa√ß√µes do usu√°rio ");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -92,29 +92,35 @@ int consultar()
 
 int deletar()
 {
-	printf("VocÍ escolheu deletar nomes.\n\n");
+	printf("Voc√™ escolheu deletar nomes.\n\n");
     system("pause");
 }
 
+int sair()
+{
+	printf("Obrigado por utilizar esse sistema!\n");
+	return 0;
+}
 
 int main()
 {
 	int opcao=0;
-	int laco=1; // Determina a vari·vel.
+	int laco=1; // Determina a vari√°vel.
 	
 	for(laco=1;laco=1;)
 	{
 		system("cls");
     	setlocale(LC_ALL, "Portuguese"); // Seleciona o idioma.
-    	printf("### CartÛrio da EBAC ###\n\n");
-    	printf("Escolha a opÁ„o desejada no menu: \n\n");
+    	printf("### Cart√≥rio da EBAC ###\n\n");
+    	printf("Escolha a op√ß√£o desejada no menu: \n\n");
     	printf("\t1 - Registrar nomes\n");
     	printf("\t2 - Consultar nomes\n");
     	printf("\t3 - Deletar nomes\n\n");
+	printf("\t4 - Sair do sistema\n\n");
     
-    	scanf("%d", &opcao); //Define o tipo da vari·vel a atribui o valor digitado.
+    	scanf("%d", &opcao); //Define o tipo da vari√°vel a atribui o valor digitado.
     
-    	system("cls"); // Limpa o cÛdigo.
+    	system("cls"); // Limpa o c√≥digo.
     
     	switch(opcao)
     	{
@@ -126,12 +132,16 @@ int main()
 			consultar();
     		break;
     		
-    		case 3:
+    			case 3:
 			deletar();
     		break;
-    		
+
+			case 4:
+			sair()
+		break;
+		
     		default:
-    			printf("Essa opÁ„o n„o est· disponÌvel.\n\n");
+    			printf("Essa op√ß√£o n√£o est√° dispon√≠vel.\n\n");
     			system("pause");
     		break;
 		
